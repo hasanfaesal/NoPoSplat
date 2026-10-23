@@ -7,6 +7,7 @@ defaults:
   - override /loss: [mse, lpips]
 
 wandb:
+  project: noposplat-tartanair
   name: tartanair_h100
   tags: [tartanair, 256x256, h100, fine-tune]
 
@@ -17,13 +18,13 @@ model:
     intrinsics_embed_loc: encoder
     intrinsics_embed_type: token
     # Foundation MASt3R weights:
-    pretrained_weights: './pretrained_weights/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth'
+    pretrained_weights: '/home/dev/pretrained_weights/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth'
   decoder:
     make_scale_invariant: true
 
 checkpointing:
   # Load the pre-trained RE10K checkpoint to fine-tune on robotics trajectories
-  load: './pretrained_weights/re10k.ckpt'
+  load: '/home/dev/pretrained_weights/re10k.ckpt'
   every_n_train_steps: 5000
 
 dataset:

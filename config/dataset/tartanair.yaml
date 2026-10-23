@@ -4,7 +4,7 @@ defaults:
   - optional view_sampler_dataset_specific_config@view_sampler: bounded_re10k
 
 name: tartanair
-roots: [datasets/tartanair]
+roots: [/home/dev/datasets/tartanair]
 
 input_image_shape: [256, 256]
 original_image_shape: [480, 640]
