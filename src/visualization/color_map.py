@@ -1,3 +1,4 @@
+import matplotlib
 import torch
 from colorspacious import cspace_convert
 from einops import rearrange
@@ -10,7 +11,7 @@ def apply_color_map(
     x: Float[Tensor, " *batch"],
     color_map: str = "inferno",
 ) -> Float[Tensor, "*batch 3"]:
-    cmap = cm.get_cmap(color_map)
+    cmap = matplotlib.colormaps[color_map]
 
     # Convert to NumPy so that Matplotlib color maps can be used.
     mapped = cmap(x.detach().clip(min=0, max=1).cpu().numpy())[..., :3]
