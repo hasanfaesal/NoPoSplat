@@ -1,4 +1,4 @@
-from dataclasses import fields
+from dataclasses import fields, dataclass
 
 from torch.utils.data import Dataset
 
@@ -9,15 +9,22 @@ from .dataset_re10k import DatasetRE10k, DatasetRE10kCfg, DatasetRE10kCfgWrapper
 from .types import Stage
 from .view_sampler import get_view_sampler
 
+
+@dataclass
+class DatasetTartanairCfgWrapper:
+    tartanair: DatasetRE10kCfg
+
+
 DATASETS: dict[str, Dataset] = {
     "re10k": DatasetRE10k,
     "dl3dv": DatasetRE10k,
     "scannetpp": DatasetRE10k,
     "scannet_pose": DatasetScannetPose,
+    "tartanair": DatasetRE10k,
 }
 
 
-DatasetCfgWrapper = DatasetRE10kCfgWrapper | DatasetDL3DVCfgWrapper | DatasetScannetppCfgWrapper | DatasetScannetPoseCfgWrapper
+DatasetCfgWrapper = DatasetRE10kCfgWrapper | DatasetDL3DVCfgWrapper | DatasetScannetppCfgWrapper | DatasetScannetPoseCfgWrapper | DatasetTartanairCfgWrapper
 DatasetCfg = DatasetRE10kCfg
 
 

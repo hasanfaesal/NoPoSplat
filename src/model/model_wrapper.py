@@ -442,19 +442,21 @@ class ModelWrapper(LightningModule):
         )
 
         # Render projections and construct projection image.
-        # These are disabled for now, since RE10k scenes are effectively unbounded.
-        projections = hcat(
-                *render_projections(
-                    gaussians,
-                    256,
-                    extra_label="",
-                )[0]
+        try:
+            projections = hcat(
+                    *render_projections(
+                        gaussians,
+                        256,
+                        extra_label="",
+                    )[0]
+                )
+            self.logger.log_image(
+                "projection",
+                [prep_image(add_border(projections))],
+                step=self.global_step,
             )
-        self.logger.log_image(
-            "projection",
-            [prep_image(add_border(projections))],
-            step=self.global_step,
-        )
+        except Exception as e:
+            print(f"Skipping projection visualization due to numerical singularity: {e}")
 
         # Draw cameras.
         cameras = hcat(*render_cameras(batch, 256))

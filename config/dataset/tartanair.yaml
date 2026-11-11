@@ -13,3 +13,7 @@ cameras_are_circular: false
 baseline_min: 1e-3
 baseline_max: 1e10
 max_fov: 100.0
+make_baseline_1: false
+augment: true
+relative_pose: false
+skip_bad_shape: true
