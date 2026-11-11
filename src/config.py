@@ -15,10 +15,11 @@ from .model.model_wrapper import OptimizerCfg, TestCfg, TrainCfg
 
 @dataclass
 class CheckpointingCfg:
-    load: Optional[str]  # Not a path, since it could be something like wandb://...
+    load: Optional[str]
     every_n_train_steps: int
     save_top_k: int
     save_weights_only: bool
+    resume: Optional[str] = None
 
 
 @dataclass

@@ -38,6 +38,7 @@ optimizer:
   backbone_lr_multiplier: 0.1
 
 checkpointing:
+  resume: null
   load: null
   every_n_train_steps: 5000
   save_top_k: 1

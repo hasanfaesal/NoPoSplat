@@ -8,7 +8,7 @@ import signal
 from colorama import Fore
 from jaxtyping import install_import_hook
 from lightning.pytorch import Trainer
-from lightning.pytorch.callbacks import LearningRateMonitor, ModelCheckpoint
+from lightning.pytorch.callbacks import LearningRateMonitor, ModelCheckpoint, EarlyStopping
 from lightning.pytorch.loggers.wandb import WandbLogger
 from lightning.pytorch.plugins.environments import SLURMEnvironment
 from omegaconf import DictConfig, OmegaConf
@@ -78,6 +78,19 @@ def train(cfg_dict: DictConfig):
     else:
         logger = LocalLogger()
 
+    # Lenient EarlyStopping on validation PSNR (higher is better)
+    # patience=10 cycles (10,000 steps), min_delta=0.01 dB threshold
+    callbacks.append(
+        EarlyStopping(
+            monitor="val/psnr",
+            mode="max",
+            patience=10,
+            min_delta=0.01,
+            verbose=True,
+            strict=False,
+        )
+    )
+
     # Set up checkpointing.
     callbacks.append(
         ModelCheckpoint(
@@ -92,7 +105,7 @@ def train(cfg_dict: DictConfig):
     callbacks[-1].CHECKPOINT_EQUALS_CHAR = '_'
 
     # Prepare the checkpoint for loading.
-    checkpoint_path = update_checkpoint_path(cfg.checkpointing.load, cfg.wandb)
+    checkpoint_path = update_checkpoint_path(cfg.checkpointing.resume or cfg.checkpointing.load, cfg.wandb)
 
     # This allows the current step to be shared with the data loader processes.
     step_tracker = StepTracker()
@@ -129,7 +142,7 @@ def train(cfg_dict: DictConfig):
     # Load the encoder weights.
     if cfg.model.encoder.pretrained_weights and cfg.mode == "train":
         weight_path = cfg.model.encoder.pretrained_weights
-        ckpt_weights = torch.load(weight_path, map_location='cpu')
+        ckpt_weights = torch.load(weight_path, map_location='cpu', weights_only=False)
         if 'model' in ckpt_weights:
             ckpt_weights = ckpt_weights['model']
             ckpt_weights = checkpoint_filter_fn(ckpt_weights, encoder)
@@ -152,12 +165,38 @@ def train(cfg_dict: DictConfig):
         step_tracker,
         distiller=distiller,
     )
+    if cfg.checkpointing.load and not cfg.checkpointing.resume and cfg.mode == "train":
+        print(f"Warm-starting model_wrapper weights from {cfg.checkpointing.load}...")
+        ckpt = torch.load(cfg.checkpointing.load, map_location="cpu", weights_only=False)
+        state_dict = ckpt["state_dict"] if "state_dict" in ckpt else ckpt
+        missing, unexpected = model_wrapper.load_state_dict(state_dict, strict=False)
+        print(f"Warm-start loaded successfully: missing={len(missing)}, unexpected={len(unexpected)}")
+        checkpoint_path = None
     data_module = DataModule(
         cfg.dataset,
         cfg.data_loader,
         step_tracker,
         global_rank=trainer.global_rank,
     )
+
+    if cfg.checkpointing.resume and cfg.mode == "train":
+        resume_ckpt_path = update_checkpoint_path(cfg.checkpointing.resume, cfg.wandb)
+        print(f"Resuming model weights from {resume_ckpt_path}...")
+        ckpt = torch.load(resume_ckpt_path, map_location="cpu", weights_only=False)
+        state_dict = ckpt["state_dict"] if "state_dict" in ckpt else ckpt
+        missing, unexpected = model_wrapper.load_state_dict(state_dict, strict=False)
+        print(f"Loaded resume weights: missing={len(missing)}, unexpected={len(unexpected)}")
+        resumed_step = ckpt.get("global_step", 0)
+        resumed_epoch = ckpt.get("epoch", 0)
+        step_tracker.set_step(resumed_step)
+        trainer.fit_loop.epoch_progress.current.completed = resumed_epoch
+        trainer.fit_loop.epoch_progress.total.completed = resumed_epoch
+        trainer.fit_loop.epoch_loop.batch_progress.total.completed = resumed_step
+        trainer.fit_loop.epoch_loop.batch_progress.current.completed = resumed_step
+        trainer.fit_loop.epoch_loop.automatic_optimization.optim_progress.optimizer.step.total.completed = resumed_step
+        trainer.fit_loop.epoch_loop.automatic_optimization.optim_progress.optimizer.step.current.completed = resumed_step
+        print(f"Fast-forwarded trainer engine to step {resumed_step}, epoch {resumed_epoch}; trainer.global_step={trainer.global_step}")
+        checkpoint_path = None
 
     if cfg.mode == "train":
         trainer.fit(model_wrapper, datamodule=data_module, ckpt_path=checkpoint_path)
