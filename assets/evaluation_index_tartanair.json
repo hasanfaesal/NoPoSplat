@@ -1,0 +1,842 @@
+[
+  {
+    "scene": "carwelding/Easy/P001",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      10,
+      25
+    ],
+    "target": [
+      13,
+      17,
+      21
+    ]
+  },
+  {
+    "scene": "carwelding/Easy/P001",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      247,
+      262
+    ],
+    "target": [
+      250,
+      254,
+      258
+    ]
+  },
+  {
+    "scene": "carwelding/Easy/P001",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      485,
+      500
+    ],
+    "target": [
+      488,
+      492,
+      496
+    ]
+  },
+  {
+    "scene": "carwelding/Easy/P001",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      722,
+      737
+    ],
+    "target": [
+      725,
+      729,
+      733
+    ]
+  },
+  {
+    "scene": "carwelding/Easy/P001",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      960,
+      975
+    ],
+    "target": [
+      963,
+      967,
+      971
+    ]
+  },
+  {
+    "scene": "carwelding/Easy/P001",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      10,
+      45
+    ],
+    "target": [
+      18,
+      27,
+      36
+    ]
+  },
+  {
+    "scene": "carwelding/Easy/P001",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      242,
+      277
+    ],
+    "target": [
+      250,
+      259,
+      268
+    ]
+  },
+  {
+    "scene": "carwelding/Easy/P001",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      475,
+      510
+    ],
+    "target": [
+      483,
+      492,
+      501
+    ]
+  },
+  {
+    "scene": "carwelding/Easy/P001",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      707,
+      742
+    ],
+    "target": [
+      715,
+      724,
+      733
+    ]
+  },
+  {
+    "scene": "carwelding/Easy/P001",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      940,
+      975
+    ],
+    "target": [
+      948,
+      957,
+      966
+    ]
+  },
+  {
+    "scene": "carwelding/Easy/P001",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      10,
+      75
+    ],
+    "target": [
+      26,
+      42,
+      58
+    ]
+  },
+  {
+    "scene": "carwelding/Easy/P001",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      235,
+      300
+    ],
+    "target": [
+      251,
+      267,
+      283
+    ]
+  },
+  {
+    "scene": "carwelding/Easy/P001",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      460,
+      525
+    ],
+    "target": [
+      476,
+      492,
+      508
+    ]
+  },
+  {
+    "scene": "carwelding/Easy/P001",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      685,
+      750
+    ],
+    "target": [
+      701,
+      717,
+      733
+    ]
+  },
+  {
+    "scene": "carwelding/Easy/P001",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      910,
+      975
+    ],
+    "target": [
+      926,
+      942,
+      958
+    ]
+  },
+  {
+    "scene": "office/Easy/P001",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      10,
+      25
+    ],
+    "target": [
+      13,
+      17,
+      21
+    ]
+  },
+  {
+    "scene": "office/Easy/P001",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      352,
+      367
+    ],
+    "target": [
+      355,
+      359,
+      363
+    ]
+  },
+  {
+    "scene": "office/Easy/P001",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      694,
+      709
+    ],
+    "target": [
+      697,
+      701,
+      705
+    ]
+  },
+  {
+    "scene": "office/Easy/P001",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      1036,
+      1051
+    ],
+    "target": [
+      1039,
+      1043,
+      1047
+    ]
+  },
+  {
+    "scene": "office/Easy/P001",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      1379,
+      1394
+    ],
+    "target": [
+      1382,
+      1386,
+      1390
+    ]
+  },
+  {
+    "scene": "office/Easy/P001",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      10,
+      45
+    ],
+    "target": [
+      18,
+      27,
+      36
+    ]
+  },
+  {
+    "scene": "office/Easy/P001",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      347,
+      382
+    ],
+    "target": [
+      355,
+      364,
+      373
+    ]
+  },
+  {
+    "scene": "office/Easy/P001",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      684,
+      719
+    ],
+    "target": [
+      692,
+      701,
+      710
+    ]
+  },
+  {
+    "scene": "office/Easy/P001",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      1021,
+      1056
+    ],
+    "target": [
+      1029,
+      1038,
+      1047
+    ]
+  },
+  {
+    "scene": "office/Easy/P001",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      1359,
+      1394
+    ],
+    "target": [
+      1367,
+      1376,
+      1385
+    ]
+  },
+  {
+    "scene": "office/Easy/P001",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      10,
+      75
+    ],
+    "target": [
+      26,
+      42,
+      58
+    ]
+  },
+  {
+    "scene": "office/Easy/P001",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      339,
+      404
+    ],
+    "target": [
+      355,
+      371,
+      387
+    ]
+  },
+  {
+    "scene": "office/Easy/P001",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      669,
+      734
+    ],
+    "target": [
+      685,
+      701,
+      717
+    ]
+  },
+  {
+    "scene": "office/Easy/P001",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      999,
+      1064
+    ],
+    "target": [
+      1015,
+      1031,
+      1047
+    ]
+  },
+  {
+    "scene": "office/Easy/P001",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      1329,
+      1394
+    ],
+    "target": [
+      1345,
+      1361,
+      1377
+    ]
+  },
+  {
+    "scene": "office/Hard/P000",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      10,
+      25
+    ],
+    "target": [
+      13,
+      17,
+      21
+    ]
+  },
+  {
+    "scene": "office/Hard/P000",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      195,
+      210
+    ],
+    "target": [
+      198,
+      202,
+      206
+    ]
+  },
+  {
+    "scene": "office/Hard/P000",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      380,
+      395
+    ],
+    "target": [
+      383,
+      387,
+      391
+    ]
+  },
+  {
+    "scene": "office/Hard/P000",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      565,
+      580
+    ],
+    "target": [
+      568,
+      572,
+      576
+    ]
+  },
+  {
+    "scene": "office/Hard/P000",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      751,
+      766
+    ],
+    "target": [
+      754,
+      758,
+      762
+    ]
+  },
+  {
+    "scene": "office/Hard/P000",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      10,
+      45
+    ],
+    "target": [
+      18,
+      27,
+      36
+    ]
+  },
+  {
+    "scene": "office/Hard/P000",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      190,
+      225
+    ],
+    "target": [
+      198,
+      207,
+      216
+    ]
+  },
+  {
+    "scene": "office/Hard/P000",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      370,
+      405
+    ],
+    "target": [
+      378,
+      387,
+      396
+    ]
+  },
+  {
+    "scene": "office/Hard/P000",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      550,
+      585
+    ],
+    "target": [
+      558,
+      567,
+      576
+    ]
+  },
+  {
+    "scene": "office/Hard/P000",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      731,
+      766
+    ],
+    "target": [
+      739,
+      748,
+      757
+    ]
+  },
+  {
+    "scene": "office/Hard/P000",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      10,
+      75
+    ],
+    "target": [
+      26,
+      42,
+      58
+    ]
+  },
+  {
+    "scene": "office/Hard/P000",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      182,
+      247
+    ],
+    "target": [
+      198,
+      214,
+      230
+    ]
+  },
+  {
+    "scene": "office/Hard/P000",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      355,
+      420
+    ],
+    "target": [
+      371,
+      387,
+      403
+    ]
+  },
+  {
+    "scene": "office/Hard/P000",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      528,
+      593
+    ],
+    "target": [
+      544,
+      560,
+      576
+    ]
+  },
+  {
+    "scene": "office/Hard/P000",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      701,
+      766
+    ],
+    "target": [
+      717,
+      733,
+      749
+    ]
+  },
+  {
+    "scene": "office2/Easy/P000",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      10,
+      25
+    ],
+    "target": [
+      13,
+      17,
+      21
+    ]
+  },
+  {
+    "scene": "office2/Easy/P000",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      98,
+      113
+    ],
+    "target": [
+      101,
+      105,
+      109
+    ]
+  },
+  {
+    "scene": "office2/Easy/P000",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      186,
+      201
+    ],
+    "target": [
+      189,
+      193,
+      197
+    ]
+  },
+  {
+    "scene": "office2/Easy/P000",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      274,
+      289
+    ],
+    "target": [
+      277,
+      281,
+      285
+    ]
+  },
+  {
+    "scene": "office2/Easy/P000",
+    "bucket": "small",
+    "gap": 15,
+    "context": [
+      362,
+      377
+    ],
+    "target": [
+      365,
+      369,
+      373
+    ]
+  },
+  {
+    "scene": "office2/Easy/P000",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      10,
+      45
+    ],
+    "target": [
+      18,
+      27,
+      36
+    ]
+  },
+  {
+    "scene": "office2/Easy/P000",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      93,
+      128
+    ],
+    "target": [
+      101,
+      110,
+      119
+    ]
+  },
+  {
+    "scene": "office2/Easy/P000",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      176,
+      211
+    ],
+    "target": [
+      184,
+      193,
+      202
+    ]
+  },
+  {
+    "scene": "office2/Easy/P000",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      259,
+      294
+    ],
+    "target": [
+      267,
+      276,
+      285
+    ]
+  },
+  {
+    "scene": "office2/Easy/P000",
+    "bucket": "medium",
+    "gap": 35,
+    "context": [
+      342,
+      377
+    ],
+    "target": [
+      350,
+      359,
+      368
+    ]
+  },
+  {
+    "scene": "office2/Easy/P000",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      10,
+      75
+    ],
+    "target": [
+      26,
+      42,
+      58
+    ]
+  },
+  {
+    "scene": "office2/Easy/P000",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      85,
+      150
+    ],
+    "target": [
+      101,
+      117,
+      133
+    ]
+  },
+  {
+    "scene": "office2/Easy/P000",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      161,
+      226
+    ],
+    "target": [
+      177,
+      193,
+      209
+    ]
+  },
+  {
+    "scene": "office2/Easy/P000",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      236,
+      301
+    ],
+    "target": [
+      252,
+      268,
+      284
+    ]
+  },
+  {
+    "scene": "office2/Easy/P000",
+    "bucket": "wide",
+    "gap": 65,
+    "context": [
+      312,
+      377
+    ],
+    "target": [
+      328,
+      344,
+      360
+    ]
+  }
+]
