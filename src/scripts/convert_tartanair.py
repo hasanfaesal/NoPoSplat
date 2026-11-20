@@ -73,9 +73,9 @@ def ned_pose_to_opencv_w2c(pose: np.ndarray) -> np.ndarray:
         [1, 0, 0]
     ], dtype=np.float32)
 
-    # c2w rotation and translation in camera frame
-    R_c2w = rot_ned @ R_ned2cam.T
-    t_c2w = np.array([ty, tz, tx], dtype=np.float32)
+    # Similarity transform from NED world/body frame to OpenCV camera frame
+    R_c2w = R_ned2cam @ rot_ned @ R_ned2cam.T
+    t_c2w = R_ned2cam @ np.array([tx, ty, tz], dtype=np.float32)
 
     # Construct 4x4 c2w matrix
     c2w = np.eye(4, dtype=np.float32)
@@ -105,7 +105,7 @@ def process_sequence(seq_dir: Path) -> Example:
     if not img_dir.exists() or not pose_file.exists():
         return None
 
-    poses = np.loadtxt(pose_file, delimiter=" ")
+    poses = np.loadtxt(pose_file)
     img_files = sorted(list(img_dir.glob("*.png")))
     num_frames = min(len(poses), len(img_files))
 

@@ -17,31 +17,32 @@ model:
     pose_free: true
     intrinsics_embed_loc: encoder
     intrinsics_embed_type: token
-    # Foundation MASt3R weights:
-    pretrained_weights: '/home/dev/pretrained_weights/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth'
+    # Warm-started from re10k.ckpt below (no separate MASt3R file needed)
+    pretrained_weights: ''
   decoder:
     make_scale_invariant: true
 
 checkpointing:
   # Load the pre-trained RE10K checkpoint to fine-tune on robotics trajectories
-  load: '/home/dev/pretrained_weights/re10k.ckpt'
-  every_n_train_steps: 5000
+  load: 'pretrained_weights/re10k.ckpt'
+  every_n_train_steps: 2000
 
 dataset:
   tartanair:
     view_sampler:
-      warm_up_steps: 20000
+      warm_up_steps: 2000
 
 optimizer:
-  lr: 1e-4
-  warm_up_steps: 1000
+  lr: 5e-5
+  warm_up_steps: 500
   backbone_lr_multiplier: 0.1
 
 data_loader:
   train:
-    batch_size: 16
-    num_workers: 8
+    batch_size: 8
+    num_workers: 4
 
 trainer:
-  max_steps: 150000
-  val_check_interval: 1000
+  max_steps: 20000
+  val_check_interval: 500
+  gradient_clip_val: 1.0

@@ -50,9 +50,9 @@ def evaluate(cfg_dict: DictConfig):
     torch.manual_seed(cfg.seed)
 
     encoder, encoder_visualizer = get_encoder(cfg.model.encoder)
-    ckpt_weights = torch.load(cfg.checkpointing.load, map_location='cpu')['state_dict']
-    # remove the prefix "encoder.", need to judge if is at start of key
-    ckpt_weights = {k[8:] if k.startswith("encoder.") else k: v for k, v in ckpt_weights.items()}
+    ckpt_weights = torch.load(cfg.checkpointing.load, map_location='cpu', weights_only=False)['state_dict']
+    # Keep only encoder weights and strip the "encoder." prefix
+    ckpt_weights = {k[8:]: v for k, v in ckpt_weights.items() if k.startswith("encoder.")}
     missing_keys, unexpected_keys = encoder.load_state_dict(ckpt_weights, strict=True)
 
     trainer = Trainer(max_epochs=-1, accelerator="gpu", inference_mode=False)
